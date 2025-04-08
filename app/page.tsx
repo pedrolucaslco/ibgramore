@@ -136,9 +136,9 @@ export default function Home() {
             <div className="hero-overlay"></div>
             <div className={`hero-content ${funnelDisplay.className} text-base-200 text-left`}>
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Amar a Deus</h1>
-                <h1 className="mb-5 text-5xl font-bold">Crescer com os Irmãos</h1>
-                <h1 className="mb-5 text-5xl font-bold">Servir a Todos</h1>
+                <h1 className="mb-5 text-4xl font-bold">Amar a Deus</h1>
+                <h1 className="mb-5 text-4xl font-bold">Crescer com os Irmãos</h1>
+                <h1 className="mb-5 text-4xl font-bold">Servir a Todos</h1>
                 {/* <p className="mb-5">
                   Amar a Deus
                   Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
@@ -259,53 +259,21 @@ export default function Home() {
             {
               pregacoes.map((pregacao, index) => (
                 <>
-                <a key={index} className="rounded-box group relative flex flex-col gap-6 overflow-hidden p-2" href="/resources/videos/i-found-the-perfect-component-library-tzboo97urws">
-              <figure className="rounded-field grid aspect-video place-content-center overflow-hidden shadow-sm transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
-                <img loading="lazy" className="w-full" src={pregacao.image} alt={pregacao.title} />
-              </figure>
-              <div className="flex items-center justify-between gap-4">
-                <div className="grow">
-                  <h2 className="text-xs font-semibold">{pregacao.title}</h2>
-                  <p className="text-base-content/60 mt-2 text-[0.6875rem]">{pregacao.description}</p>
-                </div>
-              </div>
-            </a>
-                  <div key={index} className="card bg-neutral-800 text-base-100 w-full shadow-sm">
-                    <figure>
-                      <img
-                        src={pregacao.image}
-                        alt={pregacao.title} />
+                  <a key={index} className="rounded-box group relative flex flex-col gap-6 overflow-hidden p-2" href="/resources/videos/i-found-the-perfect-component-library-tzboo97urws">
+                    <figure className="rounded-field grid aspect-video place-content-center overflow-hidden shadow-sm transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
+                      <img loading="lazy" className="w-full" src={pregacao.image} alt={pregacao.title} />
                     </figure>
-                    <div className="card-body">
-                      <h2 className="card-title">
-                        {pregacao.title}
-                      </h2>
-                      <p>{pregacao.description}</p>
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="grow">
+                        <h2 className="text-xs font-semibold">{pregacao.title}</h2>
+                        <p className="text-base-content/60 mt-2 text-[0.6875rem]">{pregacao.description}</p>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </>
               ))
             }
 
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {
-              pregacoes.map((pregacao, index) => (
-                <div key={index} className="card bg-neutral-800 text-base-100 w-full shadow-sm">
-                  <figure>
-                    <img
-                      src={pregacao.image}
-                      alt={pregacao.title} />
-                  </figure>
-                  <div className="card-body">
-                    <h2 className="card-title">
-                      {pregacao.title}
-                    </h2>
-                    <p>{pregacao.description}</p>
-                  </div>
-                </div>
-              ))
-            }
           </div>
         </section>
 
