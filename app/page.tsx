@@ -3,8 +3,11 @@
 import Image from "next/image";
 
 import logoIbg from "../public/logo-h.svg";
-import { Instagram, InstagramIcon, MenuIcon, YoutubeIcon } from "lucide-react"
+import logoIbgBranco from "../public/logo-branco.svg";
+import { ExternalLink, Icon, Instagram, InstagramIcon, Link2, MenuIcon, YoutubeIcon } from "lucide-react"
 import { workSans, funnelDisplay } from "./fonts";
+import * as Icons from 'lucide-react';
+import { LucideProps } from "lucide-react";
 
 interface NavItem {
   name: string;
@@ -14,73 +17,112 @@ interface NavItem {
 interface Card {
   title: string;
   description: string;
+  location: string;
   image: string;
   link: string;
+  icon: string | null;
+}
+
+type IconName = keyof typeof Icons;
+
+interface IconProps extends LucideProps {
+  name: IconName;
 }
 
 export default function Home() {
 
+  const Icon = ({ name, ...props }: IconProps) => {
+    const LucideIcon = Icons[name];
+  
+    if (!LucideIcon) return <span>Icon not found</span>;
+  
+    return <LucideIcon {...props} />;
+  };
+  
   const navItems: NavItem[] = [
     { name: "Início", href: "#home" },
     { name: "Quem Somos", href: "#aboutus" },
-    { name: "Celulas", href: "#celulas" },
+    { name: "Células", href: "#celulas" },
     { name: "Programações", href: "#programacoes" },
     { name: "Pregações", href: "#pregacoes" },
     { name: "Contato", href: "#contact" },
   ];
 
-
   const celulas: Card[] = [
-    {
-      title: "Multiplique",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
-      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      link: "#",
-    },
+    // {
+    //   title: "Multiplique",
+    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
+    //   location: `Localizada próximo ao Expansivo Colégio e Curso da Av. Boa Sorte.`,
+    //   image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    //   link: "#",
+    //   icon: 'Users',
+    // },
     {
       title: "Logos",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
+      description: "Nossa célula é bem diversificada, com irmãos de todas as faixas etárias. O ambiente é descontraído, e a galera é bastante comunicativa.",
+      location: `ao Rede Mais do Pajuçara`,
       image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       link: "#",
+      icon: 'Sprout',
     },
     {
       title: "Ide",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
+      description: `Uma pequena parte da IBG unida pela comunhão e crescimento mútuo de seus irmãos. Recentemente, passou pelo processo de multiplicação sendo composta exclusivamente por rapazes.`,
+      location: `à UPA do Pajuçara`,
       image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       link: "#",
+      icon: 'Footprints',
+    },
+    {
+      title: "Tulipa",
+      description: `Somos uma célula formada por mulheres que amam crescer juntas e exercer a comunhão!`,
+      location: `ao Supermercado Amigão, Moema Tinoco`,
+      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      link: "#",
+      icon: 'Footprints',
     },
     {
       title: "Âncora",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
+      description: `O nome da célula foi inspirado na expressão "âncora da alma", presente em Hebreus 6.19. Faz referência ao movimento de termos a nossa vida ancorada na vida e obra de Jesus e, portanto, segura e firme nEle.`,
+      location: `ao Expansivo Colégio e Curso da Av. Boa Sorte.`,
       image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       link: "#",
+      icon: 'Anchor',
     },
     {
       title: "Pacifique",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
+      description: "Um nome pensado para ser acolhedor e convidativo. A célula Pacifique é formada por homens de todas as idades e tem como marca a amizade e a comunhão. Foi dessa célula que nasceu a tradição do futebol de todo sábado.",
+      location: `ao Ginásio Nélio Dias, no Gramoré.`,
       image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       link: "#",
+      icon: 'Bird',
     },
   ];
 
   const pregacoes: Card[] = [
     {
       title: "O Deus Restaurador (livro de Jó)",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
-      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      link: "#",
+      description: "",
+      location: '',
+      image: "https://i.ytimg.com/vi/_MbPUoqjfsk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB1NX7lpEy6W49dSUeTWs1FNMXWcg",
+      link: "https://youtube.com/playlist?list=PLjyAhvg_NWd3bm7ItBpBequRx-ScO28m0&si=J6tLlFhI4xnIr4G_",
+      icon: '',
     },
     {
       title: "Eclesiastes e a vida debaixo do sol",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
-      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      description: "A vida encontra sentido na sabedoria que vem do temor ao Senhor.",
+      location: '',
+      image: "https://i.ytimg.com/vi/CckR2xdw58c/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAOeG_Bh5cFpWDzywqPlyKgR1s3wA",
       link: "#",
+      icon: '',
     },
     {
       title: "Romanos - Justificados pela Fé",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
-      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      description: "As boas-novas do enredo da Salvação.",
+      location: '',
+      image: "https://i.ytimg.com/vi/fjiOqchIz8U/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLALHQIvwevjQfQankzfgqW6yFW54Q",
       link: "#",
+      icon: '',
     },
   ];
 
@@ -150,8 +192,21 @@ export default function Home() {
           </div>
         </div>
 
-        <section id="#aboutus" className='my-8 py-25 px-10 flex flex-col gap-8'>
+        <section id="#aboutus" className='py-25 px-10 flex flex-col gap-8 bg-base-200'>
           <h1 className={` mb-4 text-center font-bold text-4xl ${funnelDisplay.className}`}>QUEM SOMOS</h1>
+
+          {/* <a className="rounded-box group relative flex flex-col gap-6 overflow-hidden" href="/resources/videos/i-found-the-perfect-component-library-tzboo97urws">
+            <figure className="rounded-field grid aspect-video place-content-center overflow-hidden shadow-sm transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
+              <img loading="lazy" className="w-full" src="https://img.freepik.com/vetores-gratis/design-de-player-de-midia-de-video_114579-839.jpg" alt="#" />
+            </figure>
+            <div className="flex items-center justify-between gap-4">
+              <div className="grow">
+                <h2 className="text-xs font-semibold">Somos a IBG</h2>
+                <p className="text-base-content/60 mt-2 text-[0.6875rem]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+              </div>
+            </div>
+          </a> */}
+          
           <p className="leading-relaxed text-justify hyphens-auto">
             Fundada em 2008, nossa igreja nasceu com o propósito de viver o
             evangelho de forma <u>relacional</u> e <u>bíblica</u>.
@@ -167,7 +222,7 @@ export default function Home() {
 
         </section>
 
-        <section id="#simple-church" className='bg-neutral-900 text-base-100 my-8 py-20 px-10 flex flex-col gap-8'>
+        <section id="#simple-church" className='bg-neutral-900 text-base-100 py-25 px-10 flex flex-col gap-8'>
           <h1 className={` mb-4 text-center font-bold text-4xl ${funnelDisplay.className}`}>SOMOS UMA <br /><u>IGREJA SIMPLES</u></h1>
           <p className="leading-relaxed text-justify hyphens-auto">
             Valorizamos uma caminhada cristã simples, centrada em <b className="font-semibold underline">relacionamentos verdadeiros</b>.
@@ -200,16 +255,22 @@ export default function Home() {
           <div className="my-8 grid  text-base-content grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {
               celulas.map((celula, index) => (
-                <div key={index} className="card bg-neutral-800 text-base-100 w-full shadow-sm">
-                  <figure>
+                <div key={index} className="card bg-base-200 w-full border border-base-300">
+                  {/* <figure>
                     <img
                       src={celula.image}
                       alt={celula.title} />
-                  </figure>
+                  </figure> */}
                   <div className="card-body">
                     <h2 className="card-title">
+                      <Icon name={celula.icon} size={24} />
                       {celula.title}
                     </h2>
+                    
+                    <div className="flex items-center text-base-content/60 align-middle gap-1">
+                      <Icon name="MapPin" size={16} />
+                      <span className="text-xs">Próxima {celula.location}</span>
+                    </div>
                     <p>{celula.description}</p>
                   </div>
                 </div>
@@ -226,15 +287,15 @@ export default function Home() {
               PROGRAMAÇÕES</h1>
             <p className="text-center">Confira nossas programações da semana.</p>
           </div>
-          <div className="overflow-x-auto md:max-w-md rounded-box border border-content/5">
+          <div className="overflow-x-auto md:max-w-md rounded-box border-neutral-600 border-2 -rotate-2 shadow-2xl">
             <table className="table">
-              <thead className="text-base-100">
+              <thead className="text-base-100 bg-neutral-800">
                 <tr className="border-base-100">
                   <th>Evento</th>
                   <th>Data/Horário</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="bg-base-100 text-base-content">
                 <tr>
                   <td>Cultos</td>
                   <td>Domingo às 18h30</td>
@@ -246,6 +307,37 @@ export default function Home() {
                 <tr>
                   <td>Células</td>
                   <td>Durante a semana à noite</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+          </div>
+          <div className="overflow-x-auto md:max-w-md rounded-box border-neutral-600 border-2">
+            <table className="table">
+              <thead className="text-base-100 bg-neutral-800">
+                <tr>
+                  <th colSpan={2}>Outros Eventos</th>
+                </tr>
+                <tr className="border-base-100">
+                  <th>Data</th>
+                  <th>Evento</th>
+                </tr>
+              </thead>
+              <tbody className="bg-base-100 text-base-content">
+                <tr>
+                  <td>30/07 - 16h e 19h</td>
+                  <td>
+                    <b>Famílias para a Glória de Deus: Idolatria na Família</b><br/>
+                    <span className="text-xs">Um encontro para dialogar sobre como buscar a centralidade de Cristo na família.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>30/08 - (horário a definir)</td>
+                  <td>
+                    <b>Na Ponta da Língua: Igrejas Tóxicas</b><br/>
+                    <span className='text-xs'>Um bate-papo informal sobre teologia, com perguntas e respostas sobre temas polêmicos e importantes.</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -275,6 +367,8 @@ export default function Home() {
             }
 
           </div>
+
+          <a href="https://www.youtube.com/@ibgramore/playlists" target="_blank" className="btn btn-light">Ver mais <ExternalLink className="inline-block h-4 w-4" /> </a>
         </section>
 
         {/* <section id="#contact" className='min-h-screen pt-20'>
@@ -282,9 +376,10 @@ export default function Home() {
           <p>Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
         </section> */}
       </div>
-      <footer className="footer sm:footer-horizontal bg-base-300 items-center p-4 py-20">
+      <footer className="footer sm:footer-horizontal bg-red-900 text-base-100 items-center p-4 py-20">
         <aside className="grid-flow-col items-center">
-          <Image src={logoIbg} alt="Logotipo da IBG" width={150} height={100} />
+
+          <Image src={logoIbgBranco} alt="Logotipo da IBG" width={150} height={100} />
         </aside>
         <ul className="nav flex flex-col gap-4 w-full">
           {
