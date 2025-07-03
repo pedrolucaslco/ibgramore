@@ -4,10 +4,19 @@ import Image from "next/image";
 
 import logoIbg from "../public/logo-h.svg";
 import logoIbgBranco from "../public/logo-branco.svg";
+
+import imgLogos from "../public/logos.jpeg";
+import imgIde from "../public/ide.jpeg";
+import imgAncora from "../public/ancora.jpeg";
+import imgTulipa from "../public/tulipa.jpeg";
+import imgPacifique from "../public/pacifique.jpeg";
+import imgAlianca from "../public/alianca.jpeg";
+
 import { ExternalLink, Icon, Instagram, InstagramIcon, Link2, MenuIcon, YoutubeIcon } from "lucide-react"
 import { workSans, funnelDisplay } from "./fonts";
 import * as Icons from 'lucide-react';
 import { LucideProps } from "lucide-react";
+import * as LabIcons from '@lucide/lab';
 
 interface NavItem {
   name: string;
@@ -20,10 +29,10 @@ interface Card {
   location: string;
   image: string;
   link: string;
-  icon: string | null;
+  icon: string;
 }
 
-type IconName = keyof typeof Icons;
+type IconName = keyof typeof Icons | keyof typeof LabIcons;
 
 interface IconProps extends LucideProps {
   name: IconName;
@@ -31,14 +40,21 @@ interface IconProps extends LucideProps {
 
 export default function Home() {
 
-  const Icon = ({ name, ...props }: IconProps) => {
+  const DynamicIcon = ({ name, ...props }: IconProps) => {
     const LucideIcon = Icons[name];
-  
-    if (!LucideIcon) return <span>Icon not found</span>;
-  
-    return <LucideIcon {...props} />;
+    const LabIcon = LabIcons[name];
+
+    if (LucideIcon) 
+      return <LucideIcon {...props} />;
+
+    if (LabIcon) 
+      return <Icon iconNode={LabIcon} {...props} />;
+    
+    if (!LucideIcon && !LabIcon)
+      return <span>Icon not found</span>;
+
   };
-  
+
   const navItems: NavItem[] = [
     { name: "Início", href: "#home" },
     { name: "Quem Somos", href: "#aboutus" },
@@ -61,7 +77,7 @@ export default function Home() {
       title: "Logos",
       description: "Nossa célula é bem diversificada, com irmãos de todas as faixas etárias. O ambiente é descontraído, e a galera é bastante comunicativa.",
       location: `ao Rede Mais do Pajuçara`,
-      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: imgLogos.src,
       link: "#",
       icon: 'Sprout',
     },
@@ -69,7 +85,7 @@ export default function Home() {
       title: "Ide",
       description: `Uma pequena parte da IBG unida pela comunhão e crescimento mútuo de seus irmãos. Recentemente, passou pelo processo de multiplicação sendo composta exclusivamente por rapazes.`,
       location: `à UPA do Pajuçara`,
-      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: imgIde.src,
       link: "#",
       icon: 'Footprints',
     },
@@ -77,7 +93,7 @@ export default function Home() {
       title: "Tulipa",
       description: `Somos uma célula formada por mulheres que amam crescer juntas e exercer a comunhão!`,
       location: `ao Supermercado Amigão, Moema Tinoco`,
-      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: imgTulipa.src,
       link: "#",
       icon: 'Footprints',
     },
@@ -85,15 +101,23 @@ export default function Home() {
       title: "Âncora",
       description: `O nome da célula foi inspirado na expressão "âncora da alma", presente em Hebreus 6.19. Faz referência ao movimento de termos a nossa vida ancorada na vida e obra de Jesus e, portanto, segura e firme nEle.`,
       location: `ao Expansivo Colégio e Curso da Av. Boa Sorte.`,
-      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: imgAncora.src,
       link: "#",
       icon: 'Anchor',
+    },
+    {
+      title: "Aliança",
+      description: ``,
+      location: ``,
+      image: imgAlianca.src,
+      link: "à Avenida Chegança, Nova Natal",
+      icon: 'gemRing',
     },
     {
       title: "Pacifique",
       description: "Um nome pensado para ser acolhedor e convidativo. A célula Pacifique é formada por homens de todas as idades e tem como marca a amizade e a comunhão. Foi dessa célula que nasceu a tradição do futebol de todo sábado.",
       location: `ao Ginásio Nélio Dias, no Gramoré.`,
-      image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: imgPacifique.src,
       link: "#",
       icon: 'Bird',
     },
@@ -126,18 +150,35 @@ export default function Home() {
     },
   ];
 
+  interface Calendar {
+    date: string;
+    title: string;
+    description: string;
+  }
+
+  const calendar: Calendar[] = [
+    {
+      date: "30/07 - 16h e 19h",
+      title: "Famílias para a Glória de Deus: Idolatria na Família",
+      description: "Um encontro para dialogar sobre como buscar a centralidade de Cristo na família.",
+    },
+    {
+      date: "30/08 - (horário a definir)",
+      title: "Na Ponta da Língua: Igrejas Tóxicas",
+      description: "Um bate-papo informal sobre teologia, com perguntas e respostas sobre temas polêmicos e importantes.",
+    },
+  ]
+
+
   return (
     <>
       <div className="navbar fixed z-50 bg-base-100 shadow-sm">
-        <div className="flex-1">
-          <Image src={logoIbg} alt="Logotipo da IBG" width={150} height={100} />
-        </div>
-        <div className="flex-none">
+        <div className="navbar-start">
           <div className="drawer">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
+            <div className="drawer-content me-3">
               {/* Page content here */}
-              <label htmlFor="my-drawer" className="btn btn-ghost drawer-button">
+              <label htmlFor="my-drawer" className="btn btn-square btn-outline drawer-button">
                 <MenuIcon />
               </label>
             </div>
@@ -166,14 +207,21 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div >
+        <div className="navbar-center">
+          <Image src={logoIbg} alt="Logotipo da IBG" width={150} height={100} />
+          {/* <a class="btn btn-ghost text-xl">daisyUI</a> */}
+        </div>
+        <div className="navbar-end">
+          <span></span>
+        </div>
+      </div>
 
       <div className="min-h-screen">
         <div id="#home" className='pt-16'>
           <div
             className="hero min-h-dvw animate-fade-in"
             style={{
-              backgroundImage: "url(photo1.jpg)",
+              backgroundImage: "url(hero.png)",
             }}>
             <div className="hero-overlay"></div>
             <div className={`hero-content ${funnelDisplay.className} text-base-200 text-left`}>
@@ -206,7 +254,7 @@ export default function Home() {
               </div>
             </div>
           </a> */}
-          
+
           <p className="leading-relaxed text-justify hyphens-auto">
             Fundada em 2008, nossa igreja nasceu com o propósito de viver o
             evangelho de forma <u>relacional</u> e <u>bíblica</u>.
@@ -256,19 +304,19 @@ export default function Home() {
             {
               celulas.map((celula, index) => (
                 <div key={index} className="card bg-base-200 w-full border border-base-300">
-                  {/* <figure>
+                  <figure>
                     <img
                       src={celula.image}
-                      alt={celula.title} />
-                  </figure> */}
+                      alt={celula.title} className="object-cover" />
+                  </figure>
                   <div className="card-body">
                     <h2 className="card-title">
-                      <Icon name={celula.icon} size={24} />
+                      <DynamicIcon name={celula.icon} size={24} />
                       {celula.title}
                     </h2>
-                    
+
                     <div className="flex items-center text-base-content/60 align-middle gap-1">
-                      <Icon name="MapPin" size={16} />
+                      <DynamicIcon name="MapPin" size={16} />
                       <span className="text-xs">Próxima {celula.location}</span>
                     </div>
                     <p>{celula.description}</p>
@@ -313,32 +361,29 @@ export default function Home() {
           </div>
           <div>
           </div>
-          <div className="overflow-x-auto md:max-w-md rounded-box border-neutral-600 border-2">
-            <table className="table">
-              <thead className="text-base-100 bg-neutral-800">
-                <tr>
+          <div className="overflow-x-auto md:max-w-md rounded-box border border-neutral-content">
+            <table className="table border-collapse">
+              <thead className="text-neutral-content">
+                <tr className="border-neutral-content">
                   <th colSpan={2}>Outros Eventos</th>
                 </tr>
-                <tr className="border-base-100">
-                  <th>Data</th>
+                <tr className="border-neutral-content">
+                  <th className="border-e border-neutral-content">Data</th>
                   <th>Evento</th>
                 </tr>
               </thead>
-              <tbody className="bg-base-100 text-base-content">
-                <tr>
-                  <td>30/07 - 16h e 19h</td>
-                  <td>
-                    <b>Famílias para a Glória de Deus: Idolatria na Família</b><br/>
-                    <span className="text-xs">Um encontro para dialogar sobre como buscar a centralidade de Cristo na família.</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>30/08 - (horário a definir)</td>
-                  <td>
-                    <b>Na Ponta da Língua: Igrejas Tóxicas</b><br/>
-                    <span className='text-xs'>Um bate-papo informal sobre teologia, com perguntas e respostas sobre temas polêmicos e importantes.</span>
-                  </td>
-                </tr>
+              <tbody className="text-neutral-content">
+                {
+                  calendar.map((event, index) => (
+                    <tr key={index} className="border-neutral-content">
+                      <td className="border-e border-neutral-content">{event.date}</td>
+                      <td>
+                        <b>{event.title}</b><br />
+                        <span className="text-xs">{event.description}</span>
+                      </td>
+                    </tr>
+                  ))
+                }
               </tbody>
             </table>
           </div>
@@ -350,19 +395,19 @@ export default function Home() {
           <div className="grid gap-y-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {
               pregacoes.map((pregacao, index) => (
-                <>
-                  <a key={index} className="rounded-box group relative flex flex-col gap-6 overflow-hidden p-2" href="/resources/videos/i-found-the-perfect-component-library-tzboo97urws">
-                    <figure className="rounded-field grid aspect-video place-content-center overflow-hidden shadow-sm transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
-                      <img loading="lazy" className="w-full" src={pregacao.image} alt={pregacao.title} />
-                    </figure>
-                    <div className="flex items-center justify-between gap-4">
-                      <div className="grow">
-                        <h2 className="text-xs font-semibold">{pregacao.title}</h2>
-                        <p className="text-base-content/60 mt-2 text-[0.6875rem]">{pregacao.description}</p>
-                      </div>
+
+                <a key={index} className="rounded-box group relative flex flex-col gap-6 overflow-hidden p-2" href="/resources/videos/i-found-the-perfect-component-library-tzboo97urws">
+                  <figure className="rounded-field grid aspect-video place-content-center overflow-hidden shadow-sm transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
+                    <img loading="lazy" className="w-full" src={pregacao.image} alt={pregacao.title} />
+                  </figure>
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="grow">
+                      <h2 className="text-xs font-semibold">{pregacao.title}</h2>
+                      <p className="text-base-content/60 mt-2 text-[0.6875rem]">{pregacao.description}</p>
                     </div>
-                  </a>
-                </>
+                  </div>
+                </a>
+
               ))
             }
 
