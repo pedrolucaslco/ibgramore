@@ -61,67 +61,112 @@ export default function Home() {
     { name: "Células", href: "#celulas" },
     { name: "Programações", href: "#programacoes" },
     { name: "Pregações", href: "#pregacoes" },
-    { name: "Contato", href: "#contact" },
+    // { name: "Contato", href: "#contact" },
   ];
 
   const celulas: Card[] = [
-    // {
-    //   title: "Multiplique",
-    //   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.",
-    //   location: `Localizada próximo ao Expansivo Colégio e Curso da Av. Boa Sorte.`,
-    //   image: "https://images.unsplash.com/photo-1651514646753-69a9c66b5f79?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    //   link: "#",
-    //   icon: 'Users',
-    // },
-    {
-      title: "Logos",
-      description: "Nossa célula é bem diversificada, com irmãos de todas as faixas etárias. O ambiente é descontraído, e a galera é bastante comunicativa.",
-      location: `ao Rede Mais do Pajuçara`,
-      image: imgLogos.src,
-      link: "#",
-      icon: 'Sprout',
-    },
-    {
-      title: "Ide",
-      description: `Uma pequena parte da IBG unida pela comunhão e crescimento mútuo de seus irmãos. Recentemente, passou pelo processo de multiplicação sendo composta exclusivamente por rapazes.`,
-      location: `à UPA do Pajuçara`,
-      image: imgIde.src,
-      link: "#",
-      icon: 'Footprints',
-    },
-    {
-      title: "Tulipa",
-      description: `Somos uma célula formada por mulheres que amam crescer juntas e exercer a comunhão!`,
-      location: `ao Supermercado Amigão, Moema Tinoco`,
-      image: imgTulipa.src,
-      link: "#",
-      icon: 'Footprints',
-    },
-    {
-      title: "Âncora",
-      description: `O nome da célula foi inspirado na expressão "âncora da alma", presente em Hebreus 6.19. Faz referência ao movimento de termos a nossa vida ancorada na vida e obra de Jesus e, portanto, segura e firme nEle.`,
-      location: `ao Expansivo Colégio e Curso da Av. Boa Sorte.`,
-      image: imgAncora.src,
-      link: "#",
-      icon: 'Anchor',
-    },
-    {
-      title: "Aliança",
-      description: ``,
-      location: ``,
-      image: imgAlianca.src,
-      link: "à Avenida Chegança, Nova Natal",
-      icon: 'gemRing',
-    },
-    {
-      title: "Pacifique",
-      description: "Um nome pensado para ser acolhedor e convidativo. A célula Pacifique é formada por homens de todas as idades e tem como marca a amizade e a comunhão. Foi dessa célula que nasceu a tradição do futebol de todo sábado.",
-      location: `ao Ginásio Nélio Dias, no Gramoré.`,
-      image: imgPacifique.src,
-      link: "#",
-      icon: 'Bird',
-    },
-  ];
+  {
+    title: "Logos",
+    description: "Formada por irmãos de diversas idades, a Logos tem um ambiente descontraído e acolhedor, marcado pela comunicação e pela alegria em caminhar juntos.",
+    location: `ao Rede Mais do Pajuçara`,
+    image: imgLogos.src,
+    link: "#",
+    icon: 'Sprout',
+  },
+  {
+    title: "Ide",
+    description: "Um grupo formado exclusivamente por rapazes, fruto da multiplicação de outra célula. A Ide valoriza a comunhão e o crescimento mútuo, sendo um reflexo da juventude ativa da nossa igreja.",
+    location: `à UPA do Pajuçara`,
+    image: imgIde.src,
+    link: "#",
+    icon: 'Footprints',
+  },
+  {
+    title: "Tulipa",
+    description: "A Tulipa é um espaço de comunhão e crescimento formado por mulheres que se dedicam a viver o evangelho juntas, com leveza, afeto e propósito.",
+    location: `ao Supermercado Amigão, Moema Tinoco`,
+    image: imgTulipa.src,
+    link: "#",
+    icon: 'Footprints',
+  },
+  {
+    title: "Âncora",
+    description: "Inspirada em Hebreus 6.19, a célula Âncora busca viver com firmeza na fé em Cristo. É um grupo que encontra segurança na obra de Jesus e compartilha essa verdade em comunhão.",
+    location: `ao Expansivo Colégio e Curso da Av. Boa Sorte.`,
+    image: imgAncora.src,
+    link: "#",
+    icon: 'Anchor',
+  },
+  {
+    title: "Aliança",
+    description: "Surgida da multiplicação da célula Âncora, a Aliança reúne casais e jovens que desejam viver um relacionamento sincero com Deus, refletindo o compromisso que Ele tem com o seu povo.",
+    location: `ao Campo da Escola Miriam Coeli, Nova Natal`,
+    image: imgAlianca.src,
+    link: "#",
+    icon: 'gemRing',
+  },
+  {
+    title: "Pacifique",
+    description: "A Pacifique é formada por homens de diferentes idades e tem como marca a amizade, a comunhão e o acolhimento. Foi nela que nasceu a tradição do futebol de sábado, fortalecendo os laços fora e dentro das reuniões.",
+    location: `ao Ginásio Nélio Dias, no Gramoré.`,
+    image: imgPacifique.src,
+    link: "#",
+    icon: 'Bird',
+  },
+];
+
+  // const celulas: Card[] = [
+
+  //   {
+  //     title: "Logos",
+  //     description: "Nossa célula é bem diversificada, com irmãos de todas as faixas etárias. O ambiente é descontraído, e a galera é bastante comunicativa.",
+  //     location: `ao Rede Mais do Pajuçara`,
+  //     image: imgLogos.src,
+  //     link: "#",
+  //     icon: 'Sprout',
+  //   },
+  //   {
+  //     title: "Ide",
+  //     description: `Uma pequena parte da IBG unida pela comunhão e crescimento mútuo de seus irmãos. Recentemente, passou pelo processo de multiplicação sendo composta exclusivamente por rapazes.`,
+  //     location: `à UPA do Pajuçara`,
+  //     image: imgIde.src,
+  //     link: "#",
+  //     icon: 'Footprints',
+  //   },
+  //   {
+  //     title: "Tulipa",
+  //     description: `Somos uma célula formada por mulheres que amam crescer juntas e exercer a comunhão!`,
+  //     location: `ao Supermercado Amigão, Moema Tinoco`,
+  //     image: imgTulipa.src,
+  //     link: "#",
+  //     icon: 'Footprints',
+  //   },
+  //   {
+  //     title: "Âncora",
+  //     description: `O nome da célula foi inspirado na expressão "âncora da alma", presente em Hebreus 6.19. Faz referência ao movimento de termos a nossa vida ancorada na vida e obra de Jesus e, portanto, segura e firme nEle.`,
+  //     location: `ao Expansivo Colégio e Curso da Av. Boa Sorte.`,
+  //     image: imgAncora.src,
+  //     link: "#",
+  //     icon: 'Anchor',
+  //   },
+  //   {
+  //     title: "Aliança",
+  //     description: `A aliança apresenta o desejo de Deus de estabelecer um relacionamento com homens e mulheres criados à sua imagem.
+  //       Surgimos da multiplicação da célula Âncora e atualmente a célula é formada por casais e jovens. `,
+  //     location: `ao Campo da Escola Miriam Coeli, Nova Natal`,
+  //     image: imgAlianca.src,
+  //     link: "#",
+  //     icon: 'gemRing',
+  //   },
+  //   {
+  //     title: "Pacifique",
+  //     description: "Um nome pensado para ser acolhedor e convidativo. A célula Pacifique é formada por homens de todas as idades e tem como marca a amizade e a comunhão. Foi dessa célula que nasceu a tradição do futebol de todo sábado.",
+  //     location: `ao Ginásio Nélio Dias, no Gramoré.`,
+  //     image: imgPacifique.src,
+  //     link: "#",
+  //     icon: 'Bird',
+  //   },
+  // ];
 
   const pregacoes: Card[] = [
     {
@@ -389,7 +434,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20 px-10 pt-20 flex flex-col gap-10 justify-center items-center">
+        <section id='#pregacoes' className="py-20 px-10 pt-20 flex flex-col gap-10 justify-center items-center">
           <h1 className="text-4xl text-center font-bold mb-4 uppercase">Séries de Pregações</h1>
 
           <div className="grid gap-y-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
