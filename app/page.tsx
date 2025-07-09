@@ -12,16 +12,27 @@ import imgTulipa from "../public/tulipa.jpg";
 import imgPacifique from "../public/pacifique.jpg";
 import imgAlianca from "../public/alianca.jpg";
 
-import { ExternalLink, Icon, Instagram, InstagramIcon, Link2, MenuIcon, YoutubeIcon } from "lucide-react"
+import { Anchor, Bird, ExternalLink, Flower2, Footprints, Icon, Instagram, MapPin, MenuIcon, Sprout, Youtube } from "lucide-react"
+import { gemRing } from '@lucide/lab';
+
+import { siInstagram, siYoutube } from "simple-icons";
+
 import { workSans, funnelDisplay } from "./fonts";
-import * as Icons from 'lucide-react';
-import { LucideProps } from "lucide-react";
-import * as LabIcons from '@lucide/lab';
+
 
 interface NavItem {
   name: string;
   href: string;
 }
+
+const navItems: NavItem[] = [
+  { name: "Início", href: "#home" },
+  { name: "Quem Somos", href: "#aboutus" },
+  { name: "Células", href: "#celulas" },
+  { name: "Programações", href: "#programacoes" },
+  { name: "Pregações", href: "#pregacoes" },
+  // { name: "Contato", href: "#contact" },
+];
 
 interface Card {
   title: string;
@@ -29,49 +40,19 @@ interface Card {
   location: string;
   image: string;
   link: string;
-  icon: string;
+  icon: any;
+  iconType: 'lucide' | 'lab';
 }
 
-type IconName = keyof typeof Icons | keyof typeof LabIcons;
-
-interface IconProps extends LucideProps {
-  name: IconName;
-}
-
-export default function Home() {
-
-  const DynamicIcon = ({ name, ...props }: IconProps) => {
-    const LucideIcon = (Icons as Record<string, any>)[name];
-    const LabIcon = (LabIcons as Record<string, any>)[name];
-
-    if (LucideIcon) 
-      return <LucideIcon {...props} />;
-
-    if (LabIcon) 
-      return <Icon iconNode={LabIcon} {...props} />;
-    
-    if (!LucideIcon && !LabIcon)
-      return <span>Icon not found</span>;
-
-  };
-
-  const navItems: NavItem[] = [
-    { name: "Início", href: "#home" },
-    { name: "Quem Somos", href: "#aboutus" },
-    { name: "Células", href: "#celulas" },
-    { name: "Programações", href: "#programacoes" },
-    { name: "Pregações", href: "#pregacoes" },
-    // { name: "Contato", href: "#contact" },
-  ];
-
-  const celulas: Card[] = [
+const celulas: Card[] = [
   {
     title: "Logos",
     description: "Formada por irmãos de diversas idades, a Logos tem um ambiente descontraído e acolhedor, marcado pela comunicação e pela alegria em caminhar juntos.",
     location: `ao Rede Mais do Pajuçara`,
     image: imgLogos.src,
     link: "#",
-    icon: 'Sprout',
+    icon: Sprout,
+    iconType: 'lucide'
   },
   {
     title: "Ide",
@@ -79,7 +60,8 @@ export default function Home() {
     location: `à UPA do Pajuçara`,
     image: imgIde.src,
     link: "#",
-    icon: 'Footprints',
+    icon: Footprints,
+    iconType: 'lucide'
   },
   {
     title: "Tulipa",
@@ -87,7 +69,8 @@ export default function Home() {
     location: `ao Supermercado Amigão, Moema Tinoco`,
     image: imgTulipa.src,
     link: "#",
-    icon: 'Footprints',
+    icon: Flower2,
+    iconType: 'lucide'
   },
   {
     title: "Âncora",
@@ -95,7 +78,8 @@ export default function Home() {
     location: `ao Expansivo Colégio e Curso da Av. Boa Sorte.`,
     image: imgAncora.src,
     link: "#",
-    icon: 'Anchor',
+    icon: Anchor,
+    iconType: 'lucide'
   },
   {
     title: "Aliança",
@@ -103,7 +87,8 @@ export default function Home() {
     location: `ao Campo da Escola Miriam Coeli, Nova Natal`,
     image: imgAlianca.src,
     link: "#",
-    icon: 'gemRing',
+    icon: gemRing,
+    iconType: 'lab'
   },
   {
     title: "Pacifique",
@@ -111,109 +96,61 @@ export default function Home() {
     location: `ao Ginásio Nélio Dias, no Gramoré.`,
     image: imgPacifique.src,
     link: "#",
-    icon: 'Bird',
+    icon: Bird,
+    iconType: 'lucide'
   },
 ];
 
-  // const celulas: Card[] = [
+const pregacoes: Card[] = [
+  {
+    title: "O Deus Restaurador (livro de Jó)",
+    description: "",
+    location: '',
+    image: "https://i.ytimg.com/vi/_MbPUoqjfsk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB1NX7lpEy6W49dSUeTWs1FNMXWcg",
+    link: "https://youtube.com/playlist?list=PLjyAhvg_NWd3bm7ItBpBequRx-ScO28m0&si=J6tLlFhI4xnIr4G_",
+    icon: '',
+    iconType: 'lucide'
+  },
+  {
+    title: "Eclesiastes e a vida debaixo do sol",
+    description: "A vida encontra sentido na sabedoria que vem do temor ao Senhor.",
+    location: '',
+    image: "https://i.ytimg.com/vi/CckR2xdw58c/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAOeG_Bh5cFpWDzywqPlyKgR1s3wA",
+    link: "#",
+    icon: '',
+    iconType: 'lucide',
+  },
+  {
+    title: "Romanos - Justificados pela Fé",
+    description: "As boas-novas do enredo da Salvação.",
+    location: '',
+    image: "https://i.ytimg.com/vi/fjiOqchIz8U/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLALHQIvwevjQfQankzfgqW6yFW54Q",
+    link: "#",
+    icon: '',
+    iconType: 'lucide',
+  },
+];
 
-  //   {
-  //     title: "Logos",
-  //     description: "Nossa célula é bem diversificada, com irmãos de todas as faixas etárias. O ambiente é descontraído, e a galera é bastante comunicativa.",
-  //     location: `ao Rede Mais do Pajuçara`,
-  //     image: imgLogos.src,
-  //     link: "#",
-  //     icon: 'Sprout',
-  //   },
-  //   {
-  //     title: "Ide",
-  //     description: `Uma pequena parte da IBG unida pela comunhão e crescimento mútuo de seus irmãos. Recentemente, passou pelo processo de multiplicação sendo composta exclusivamente por rapazes.`,
-  //     location: `à UPA do Pajuçara`,
-  //     image: imgIde.src,
-  //     link: "#",
-  //     icon: 'Footprints',
-  //   },
-  //   {
-  //     title: "Tulipa",
-  //     description: `Somos uma célula formada por mulheres que amam crescer juntas e exercer a comunhão!`,
-  //     location: `ao Supermercado Amigão, Moema Tinoco`,
-  //     image: imgTulipa.src,
-  //     link: "#",
-  //     icon: 'Footprints',
-  //   },
-  //   {
-  //     title: "Âncora",
-  //     description: `O nome da célula foi inspirado na expressão "âncora da alma", presente em Hebreus 6.19. Faz referência ao movimento de termos a nossa vida ancorada na vida e obra de Jesus e, portanto, segura e firme nEle.`,
-  //     location: `ao Expansivo Colégio e Curso da Av. Boa Sorte.`,
-  //     image: imgAncora.src,
-  //     link: "#",
-  //     icon: 'Anchor',
-  //   },
-  //   {
-  //     title: "Aliança",
-  //     description: `A aliança apresenta o desejo de Deus de estabelecer um relacionamento com homens e mulheres criados à sua imagem.
-  //       Surgimos da multiplicação da célula Âncora e atualmente a célula é formada por casais e jovens. `,
-  //     location: `ao Campo da Escola Miriam Coeli, Nova Natal`,
-  //     image: imgAlianca.src,
-  //     link: "#",
-  //     icon: 'gemRing',
-  //   },
-  //   {
-  //     title: "Pacifique",
-  //     description: "Um nome pensado para ser acolhedor e convidativo. A célula Pacifique é formada por homens de todas as idades e tem como marca a amizade e a comunhão. Foi dessa célula que nasceu a tradição do futebol de todo sábado.",
-  //     location: `ao Ginásio Nélio Dias, no Gramoré.`,
-  //     image: imgPacifique.src,
-  //     link: "#",
-  //     icon: 'Bird',
-  //   },
-  // ];
+interface Calendar {
+  date: string;
+  title: string;
+  description: string;
+}
 
-  const pregacoes: Card[] = [
-    {
-      title: "O Deus Restaurador (livro de Jó)",
-      description: "",
-      location: '',
-      image: "https://i.ytimg.com/vi/_MbPUoqjfsk/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLB1NX7lpEy6W49dSUeTWs1FNMXWcg",
-      link: "https://youtube.com/playlist?list=PLjyAhvg_NWd3bm7ItBpBequRx-ScO28m0&si=J6tLlFhI4xnIr4G_",
-      icon: '',
-    },
-    {
-      title: "Eclesiastes e a vida debaixo do sol",
-      description: "A vida encontra sentido na sabedoria que vem do temor ao Senhor.",
-      location: '',
-      image: "https://i.ytimg.com/vi/CckR2xdw58c/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAOeG_Bh5cFpWDzywqPlyKgR1s3wA",
-      link: "#",
-      icon: '',
-    },
-    {
-      title: "Romanos - Justificados pela Fé",
-      description: "As boas-novas do enredo da Salvação.",
-      location: '',
-      image: "https://i.ytimg.com/vi/fjiOqchIz8U/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLALHQIvwevjQfQankzfgqW6yFW54Q",
-      link: "#",
-      icon: '',
-    },
-  ];
+const calendar: Calendar[] = [
+  {
+    date: "30/07 - 16h e 19h",
+    title: "Famílias para a Glória de Deus: Idolatria na Família",
+    description: "Um encontro para dialogar sobre como buscar a centralidade de Cristo na família.",
+  },
+  {
+    date: "30/08 - (horário a definir)",
+    title: "Na Ponta da Língua: Igrejas Tóxicas",
+    description: "Um bate-papo informal sobre teologia, com perguntas e respostas sobre temas polêmicos e importantes.",
+  },
+]
 
-  interface Calendar {
-    date: string;
-    title: string;
-    description: string;
-  }
-
-  const calendar: Calendar[] = [
-    {
-      date: "30/07 - 16h e 19h",
-      title: "Famílias para a Glória de Deus: Idolatria na Família",
-      description: "Um encontro para dialogar sobre como buscar a centralidade de Cristo na família.",
-    },
-    {
-      date: "30/08 - (horário a definir)",
-      title: "Na Ponta da Língua: Igrejas Tóxicas",
-      description: "Um bate-papo informal sobre teologia, com perguntas e respostas sobre temas polêmicos e importantes.",
-    },
-  ]
-
+export default function Home() {
 
   return (
     <>
@@ -356,12 +293,16 @@ export default function Home() {
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title">
-                      <DynamicIcon name={celula.icon} size={24} />
+                      {celula.iconType === 'lab' ? (
+                        <Icon iconNode={celula.icon} size={24} />
+                      ) : (
+                        <celula.icon size={24} />
+                      )}
                       {celula.title}
                     </h2>
 
                     <div className="flex items-center text-base-content/60 align-middle gap-1">
-                      <DynamicIcon name="MapPin" size={16} />
+                      <MapPin size={16} />
                       <span className="text-xs">Próxima {celula.location}</span>
                     </div>
                     <p>{celula.description}</p>
@@ -489,8 +430,8 @@ export default function Home() {
         <div className="flex flex-col gap-4 w-full">
           <p>Sita a IBG nas redes sociais</p>
           <nav className="grid grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-            <InstagramIcon className="h-5 w-5" />
-            <YoutubeIcon className="h-5 w-5" />
+            <Instagram className="h-5 w-5" />
+            <Youtube className="h-5 w-5" />
           </nav>
         </div>
         <ul>
