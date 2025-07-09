@@ -5,12 +5,12 @@ import Image from "next/image";
 import logoIbg from "../public/logo-h.svg";
 import logoIbgBranco from "../public/logo-branco.svg";
 
-import imgLogos from "../public/logos.jpeg";
-import imgIde from "../public/ide.jpeg";
-import imgAncora from "../public/ancora.jpeg";
-import imgTulipa from "../public/tulipa.jpeg";
-import imgPacifique from "../public/pacifique.jpeg";
-import imgAlianca from "../public/alianca.jpeg";
+import imgLogos from "../public/logos.jpg";
+import imgIde from "../public/ide.jpg";
+import imgAncora from "../public/ancora.jpg";
+import imgTulipa from "../public/tulipa.jpg";
+import imgPacifique from "../public/pacifique.jpg";
+import imgAlianca from "../public/alianca.jpg";
 
 import { ExternalLink, Icon, Instagram, InstagramIcon, Link2, MenuIcon, YoutubeIcon } from "lucide-react"
 import { workSans, funnelDisplay } from "./fonts";
@@ -266,7 +266,7 @@ export default function Home() {
           <div
             className="hero min-h-dvw animate-fade-in"
             style={{
-              backgroundImage: "url(hero.png)",
+              backgroundImage: "url(hero.jpg)",
             }}>
             <div className="hero-overlay"></div>
             <div className={`hero-content ${funnelDisplay.className} text-base-200 text-left`}>
