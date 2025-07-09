@@ -41,8 +41,8 @@ interface IconProps extends LucideProps {
 export default function Home() {
 
   const DynamicIcon = ({ name, ...props }: IconProps) => {
-    const LucideIcon = Icons[name];
-    const LabIcon = LabIcons[name];
+    const LucideIcon = (Icons as Record<string, any>)[name];
+    const LabIcon = (LabIcons as Record<string, any>)[name];
 
     if (LucideIcon) 
       return <LucideIcon {...props} />;
