@@ -1,15 +1,15 @@
-import { Work_Sans, Funnel_Display } from 'next/font/google'
+import { Geist, Lora } from 'next/font/google'
 
-export const workSans = Work_Sans({
+export const geist = Geist({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-work-sans',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-geist',
   display: 'swap',
 });
 
-export const funnelDisplay = Funnel_Display({
+export const lora = Lora({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-funnel-display',
+  variable: '--font-lora',
   display: 'swap',
 });
