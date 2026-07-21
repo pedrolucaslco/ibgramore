@@ -494,14 +494,16 @@ export default function Home() {
             </div>
             <div className="flex shrink-0 gap-3">
               <a
-                href="#"
+                href="https://www.instagram.com/ibgramore"
+                target="_blank"
                 aria-label="Instagram"
                 className="flex h-11 w-11 items-center justify-center border border-ink text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
               >
                 <Instagram size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@ibgramore"
+                target="_blank"
                 aria-label="YouTube"
                 className="flex h-11 w-11 items-center justify-center border border-ink text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
               >
