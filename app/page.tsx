@@ -25,9 +25,9 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: "Início", href: "#home" },
-  { name: "Quem Somos", href: "#aboutus" },
-  { name: "Células", href: "#celulas" },
   { name: "Programações", href: "#programacoes" },
+  { name: "Células", href: "#celulas" },
+  { name: "Quem Somos", href: "#aboutus" },
   { name: "Pregações", href: "#pregacoes" },
 ];
 
@@ -210,7 +210,7 @@ export default function Home() {
       </div>
 
       <main className="pt-16 sm:pt-20">
-        <section id="home" className="bg-paper pt-4 sm:pt-6 lg:pt-8">
+        <section id="home" className="bg-paper pt-4 pb-8 sm:pt-6 sm:pb-10 lg:pt-8 lg:pb-12">
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="relative flex h-[80svh] min-h-[420px] items-center justify-center overflow-hidden bg-ink">
               <div
@@ -238,119 +238,6 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="aboutus" className="bg-paper py-16 sm:py-20 md:py-24 lg:py-28">
-          <div className="px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-24">
-              <div className="space-y-8">
-                <div className="space-y-3">
-                  <p className="text-xs font-semibold text-primary">Nossa Identidade</p>
-                  <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
-                    Quem Somos
-                  </h2>
-                </div>
-
-                <div className="space-y-6 text-lg leading-relaxed text-ink/70">
-                  <p>
-                    Fundada em 2008, nossa igreja nasceu com o propósito de viver o
-                    evangelho de forma relacional e bíblica.
-                  </p>
-                  <p>
-                    Acreditamos na salvação pela graça através unicamente da fé em Jesus
-                    Cristo, na Bíblia Sagrada como única regra de fé e prática, no discipulado contínuo e em louvores que
-                    exaltem a trindade e Sua obra.
-                  </p>
-                  <blockquote className={`border-l-2 border-primary pl-6 text-xl text-ink ${lora.className}`}>
-                    "Amar a Deus, crescer com os irmãos e servir a todos!"
-                  </blockquote>
-                </div>
-              </div>
-
-              <div className="aspect-[4/5] w-full overflow-hidden lg:aspect-auto">
-                <img
-                  src="photo1.jpg"
-                  alt="Comunhão na IBG"
-                  className="h-full w-full object-cover"
-                  onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"; }}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="simple-church" className="border-y border-ink/10 bg-paper-muted py-16 sm:py-20 md:py-24 lg:py-28">
-          <div className="px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl space-y-4">
-              <p className="text-xs font-semibold text-primary">Nossa Forma de Ser Igreja</p>
-              <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
-                Somos uma igreja simples
-              </h2>
-            </div>
-
-            <div className="mt-10 grid gap-10 sm:mt-12 sm:gap-12 md:grid-cols-2">
-              <div className="border-t border-ink/20 pt-8">
-                <h3 className={`text-2xl font-medium ${lora.className}`}>Relacionamentos</h3>
-                <p className="mt-4 leading-relaxed text-ink/70">
-                  Valorizamos uma caminhada cristã simples, centrada em relacionamentos verdadeiros.
-                </p>
-              </div>
-
-              <div className="border-t border-ink/20 pt-8">
-                <h3 className={`text-2xl font-medium ${lora.className}`}>Intencionalidade</h3>
-                <p className="mt-4 leading-relaxed text-ink/70">
-                  Nossas programações são intencionais e objetivas, com cultos de liturgia simples e profunda.
-                  Acreditamos que cada membro é parte ativa da missão.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="celulas" className="bg-paper py-16 sm:py-20 md:py-24 lg:py-28">
-          <div className="px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl space-y-4">
-              <p className="text-xs font-semibold text-primary">Comunhão nas Casas</p>
-              <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
-                Células
-              </h2>
-              <p className="text-lg leading-relaxed text-ink/70">
-                Nossas células são encontros semanais que acontecem nas casas, proporcionando um ambiente acolhedor para comunhão, discipulado e aprofundamento nas Escrituras.
-              </p>
-            </div>
-
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-              {celulas.map((celula, index) => (
-                <div
-                  key={index}
-                  className="border border-ink/10 bg-paper-muted p-4 sm:p-5"
-                >
-                  <div className="aspect-[4/3] overflow-hidden bg-page">
-                    <img
-                      src={celula.image}
-                      alt={celula.title}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="mt-4 flex items-center gap-2">
-                    {celula.iconType === 'lab' ? (
-                      <Icon iconNode={celula.icon} size={18} className="text-primary" />
-                    ) : (
-                      <celula.icon size={18} className="text-primary" />
-                    )}
-                    <h3 className={`text-lg font-medium italic ${lora.className}`}>{celula.title}</h3>
-                  </div>
-                  <p className={`mt-2 flex items-start gap-1.5 text-xs italic text-ink/50 ${lora.className}`}>
-                    <MapPin size={13} className="mt-0.5 shrink-0" />
-                    Próxima {celula.location}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/70">
-                    {celula.description}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
@@ -428,7 +315,120 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="pregacoes" className="bg-paper py-16 sm:py-20 md:py-24 lg:py-28">
+        <section id="celulas" className="bg-paper py-16 sm:py-20 md:py-24 lg:py-28">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl space-y-4">
+              <p className="text-xs font-semibold text-primary">Comunhão nas Casas</p>
+              <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+                Células
+              </h2>
+              <p className="text-lg leading-relaxed text-ink/70">
+                Nossas células são encontros semanais que acontecem nas casas, proporcionando um ambiente acolhedor para comunhão, discipulado e aprofundamento nas Escrituras.
+              </p>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+              {celulas.map((celula, index) => (
+                <div
+                  key={index}
+                  className="border border-ink/10 bg-paper-muted p-4 sm:p-5"
+                >
+                  <div className="aspect-[4/3] overflow-hidden bg-page">
+                    <img
+                      src={celula.image}
+                      alt={celula.title}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-4 flex items-center gap-2">
+                    {celula.iconType === 'lab' ? (
+                      <Icon iconNode={celula.icon} size={18} className="text-primary" />
+                    ) : (
+                      <celula.icon size={18} className="text-primary" />
+                    )}
+                    <h3 className={`text-lg font-medium italic ${lora.className}`}>{celula.title}</h3>
+                  </div>
+                  <p className={`mt-2 flex items-start gap-1.5 text-xs italic text-ink/50 ${lora.className}`}>
+                    <MapPin size={13} className="mt-0.5 shrink-0" />
+                    Próxima {celula.location}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-ink/70">
+                    {celula.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="simple-church" className="border-y border-ink/10 bg-paper-muted py-16 sm:py-20 md:py-24 lg:py-28">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl space-y-4">
+              <p className="text-xs font-semibold text-primary">Nossa Forma de Ser Igreja</p>
+              <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+                Somos uma igreja simples
+              </h2>
+            </div>
+
+            <div className="mt-10 grid gap-10 sm:mt-12 sm:gap-12 md:grid-cols-2">
+              <div className="border-t border-ink/20 pt-8">
+                <h3 className={`text-2xl font-medium ${lora.className}`}>Relacionamentos</h3>
+                <p className="mt-4 leading-relaxed text-ink/70">
+                  Valorizamos uma caminhada cristã simples, centrada em relacionamentos verdadeiros.
+                </p>
+              </div>
+
+              <div className="border-t border-ink/20 pt-8">
+                <h3 className={`text-2xl font-medium ${lora.className}`}>Intencionalidade</h3>
+                <p className="mt-4 leading-relaxed text-ink/70">
+                  Nossas programações são intencionais e objetivas, com cultos de liturgia simples e profunda.
+                  Acreditamos que cada membro é parte ativa da missão.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="aboutus" className="bg-paper py-16 sm:py-20 md:py-24 lg:py-28">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-24">
+              <div className="space-y-8">
+                <div className="space-y-3">
+                  <p className="text-xs font-semibold text-primary">Nossa Identidade</p>
+                  <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+                    Quem Somos
+                  </h2>
+                </div>
+
+                <div className="space-y-6 text-lg leading-relaxed text-ink/70">
+                  <p>
+                    Fundada em 2008, nossa igreja nasceu com o propósito de viver o
+                    evangelho de forma relacional e bíblica.
+                  </p>
+                  <p>
+                    Acreditamos na salvação pela graça através unicamente da fé em Jesus
+                    Cristo, na Bíblia Sagrada como única regra de fé e prática, no discipulado contínuo e em louvores que
+                    exaltem a trindade e Sua obra.
+                  </p>
+                  <blockquote className={`border-l-2 border-primary pl-6 text-xl text-ink ${lora.className}`}>
+                    "Amar a Deus, crescer com os irmãos e servir a todos!"
+                  </blockquote>
+                </div>
+              </div>
+
+              <div className="aspect-[4/5] w-full overflow-hidden lg:aspect-auto">
+                <img
+                  src="photo1.jpg"
+                  alt="Comunhão na IBG"
+                  className="h-full w-full object-cover"
+                  onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop"; }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pregacoes" className="border-t border-ink/10 bg-paper py-16 sm:py-20 md:py-24 lg:py-28">
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
               <p className="text-xs font-semibold text-primary">Palavra de Deus</p>
@@ -518,7 +518,7 @@ export default function Home() {
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
             <div className="space-y-4">
-              <Image src={logoIbg} alt="Logotipo da IBG" width={160} height={70} className="h-10 w-auto" />
+              <Image src={logoIbg} alt="Logotipo da IBG" width={160} height={70} className="h-10 w-auto opacity-70 grayscale" />
               <p className="text-sm leading-relaxed text-ink/60">
                 Uma igreja que busca amar a Deus sobre todas as coisas e servir ao próximo com excelência.
               </p>
@@ -540,15 +540,15 @@ export default function Home() {
             <div className="space-y-3 text-sm text-ink/60">
               <h3 className="font-semibold text-ink/50">Contato</h3>
               <p className="flex items-center gap-2">
-                <Mail size={16} className="shrink-0 text-primary" />
+                <Mail size={16} className="shrink-0 text-ink/40" />
                 igrejabatistagramore@gmail.com
               </p>
               <p className="flex items-center gap-2">
-                <Phone size={16} className="shrink-0 text-primary" />
+                <Phone size={16} className="shrink-0 text-ink/40" />
                 +55 (84) 98859-5687
               </p>
               <p className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-primary" />
+                <MapPin size={16} className="mt-0.5 shrink-0 text-ink/40" />
                 Rua Ribeirão Preto, 113, Lagoa Azul, Natal - RN
               </p>
             </div>
