@@ -12,7 +12,7 @@ import imgTulipa from "../public/tulipa.jpg";
 import imgPacifique from "../public/pacifique.jpg";
 import imgAlianca from "../public/alianca.jpg";
 
-import { Anchor, Bird, ExternalLink, Flower2, Footprints, Icon, Instagram, Mail, MapPin, Menu, Phone, Sprout, X, Youtube } from "lucide-react"
+import { Anchor, Bird, ExternalLink, Flower2, Footprints, Icon, Instagram, Mail, MapPin, Menu, Sprout, X, Youtube } from "lucide-react"
 import { gemRing } from '@lucide/lab';
 
 import { lora } from "./fonts";
@@ -542,10 +542,6 @@ export default function Home() {
               <p className="flex items-center gap-2">
                 <Mail size={16} className="shrink-0 text-ink/40" />
                 igrejabatistagramore@gmail.com
-              </p>
-              <p className="flex items-center gap-2">
-                <Phone size={16} className="shrink-0 text-ink/40" />
-                +55 (84) 98859-5687
               </p>
               <p className="flex items-start gap-2">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-ink/40" />
