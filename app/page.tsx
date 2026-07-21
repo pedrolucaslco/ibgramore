@@ -134,7 +134,13 @@ interface Calendar {
   description: string;
 }
 
-const calendar: Calendar[] = [];
+const calendar: Calendar[] = [
+  {
+    date: "Em breve",
+    title: "Na Ponta da Língua",
+    description: "",
+  },
+];
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
