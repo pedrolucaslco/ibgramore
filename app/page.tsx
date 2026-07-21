@@ -266,6 +266,15 @@ export default function Home() {
                     <div className="mt-1 text-sm text-ink/60">Escola Bíblica</div>
                   </div>
                 </div>
+
+                <a
+                  href="https://maps.app.goo.gl/pUpm9FvVLxwH652s8"
+                  target="_blank"
+                  className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  <MapPin size={16} />
+                  Como chegar
+                </a>
               </div>
 
               <div className="lg:col-span-7 space-y-10 sm:space-y-14">
