@@ -455,7 +455,7 @@ export default function Home() {
                   key={index}
                   href={pregacao.link}
                   target="_blank"
-                  className="block border border-ink/10 bg-paper-muted p-4 sm:p-5"
+                  className="group block border border-ink/10 bg-paper-muted p-4 sm:p-5"
                 >
                   <div className="aspect-video overflow-hidden border border-ink/10 bg-page">
                     <img
@@ -471,6 +471,7 @@ export default function Home() {
                   </div>
                   <h3 className="mt-4 text-lg font-medium italic leading-tight text-ink">
                     {pregacao.title}
+                    <span className="ml-1 opacity-0 transition-opacity group-hover:opacity-100">↗</span>
                   </h3>
                   {pregacao.description && (
                     <p className="mt-1 text-sm text-ink/60">
@@ -494,30 +495,47 @@ export default function Home() {
         </section>
       </main>
 
-      <section className="border-t border-ink/10 bg-page py-16 sm:py-20">
+      <section className="border-t border-ink/10 bg-page py-16 sm:py-20 md:py-24 lg:py-28">
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-start justify-between gap-6 border border-ink/10 bg-paper p-8 sm:flex-row sm:items-center sm:p-10">
-            <div className="space-y-2">
-              <h2 className={`text-2xl font-medium sm:text-3xl ${lora.className}`}>Acompanhe nas redes sociais</h2>
-              <p className="text-ink/60">Fotos, avisos e os cultos ao vivo, direto no seu feed.</p>
+          <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center lg:gap-24">
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <p className="text-xs font-semibold text-primary">Comunidade Online</p>
+                <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+                  Acompanhe nas redes sociais
+                </h2>
+                <p className="text-lg leading-relaxed text-ink/70">
+                  Nossa rede social mais ativa é o Instagram, onde compartilhamos stories durante os cultos,
+                  comunicados e novidades sobre os eventos. No YouTube, fazemos as transmissões das celebrações
+                  de domingo e da Escola Bíblica Teológica.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://www.instagram.com/ibgramore"
+                  target="_blank"
+                  className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  <Instagram size={18} />
+                  Instagram
+                </a>
+                <a
+                  href="https://www.youtube.com/@ibgramore"
+                  target="_blank"
+                  className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                >
+                  <Youtube size={18} />
+                  YouTube
+                </a>
+              </div>
             </div>
-            <div className="flex shrink-0 gap-3">
-              <a
-                href="https://www.instagram.com/ibgramore"
-                target="_blank"
-                aria-label="Instagram"
-                className="flex h-11 w-11 items-center justify-center border border-ink text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
-              >
-                <Instagram size={18} />
-              </a>
-              <a
-                href="https://www.youtube.com/@ibgramore"
-                target="_blank"
-                aria-label="YouTube"
-                className="flex h-11 w-11 items-center justify-center border border-ink text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
-              >
-                <Youtube size={18} />
-              </a>
+
+            <div className="aspect-square w-full max-w-md justify-self-center border border-ink/10 p-4 sm:p-6 lg:justify-self-end">
+              <img
+                src="/posts-bro.svg"
+                alt="Ilustração de redes sociais"
+                className="h-full w-full object-contain grayscale"
+              />
             </div>
           </div>
         </div>
@@ -550,11 +568,20 @@ export default function Home() {
               <h3 className="font-semibold text-ink/50">Contato</h3>
               <p className="flex items-center gap-2">
                 <Mail size={16} className="shrink-0 text-ink/40" />
-                igrejabatistagramore@gmail.com
+                <a href="mailto:igrejabatistagramore@gmail.com" className="transition-colors hover:text-ink">
+                  igrejabatistagramore@gmail.com
+                </a>
               </p>
               <p className="flex items-start gap-2">
                 <MapPin size={16} className="mt-0.5 shrink-0 text-ink/40" />
-                Rua Ribeirão Preto, 113, Lagoa Azul, Natal - RN
+                <a
+                  href="https://maps.app.goo.gl/pUpm9FvVLxwH652s8"
+                  target="_blank"
+                  className="group transition-colors hover:text-ink"
+                >
+                  Rua Ribeirão Preto, 113, Lagoa Azul, Natal - RN
+                  <span className="ml-1 opacity-0 transition-opacity group-hover:opacity-100">↗</span>
+                </a>
               </p>
             </div>
           </div>
