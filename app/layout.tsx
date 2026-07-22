@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { geist, lora } from "./fonts";
+import { geist, playfair } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`fade-in ${geist.variable} ${lora.variable} bg-page font-sans text-ink antialiased`}
+        className={`fade-in ${geist.variable} ${playfair.variable} bg-page font-sans text-ink antialiased`}
       >
         {children}
       </body>

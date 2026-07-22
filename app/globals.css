@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-lora), ui-serif, Georgia, serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
 
   --color-primary: #b91c1c;
   --color-primary-dark: #991b1b;
@@ -29,5 +29,16 @@ body {
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+  }
+
+  /*
+    next/font emits `font-style: normal` for each font's generated className
+    as an unlayered rule, which always wins over Tailwind's `.italic` utility
+    (declared inside @layer utilities) per the CSS cascade layers spec,
+    regardless of class order. `!important` here restores the expected result
+    when `italic` is combined with a next/font className.
+  */
+  .italic {
+    font-style: italic !important;
   }
 }

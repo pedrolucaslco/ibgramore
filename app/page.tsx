@@ -15,7 +15,7 @@ import imgAlianca from "../public/alianca.jpg";
 import { Anchor, Bird, ExternalLink, Flower2, Footprints, Icon, Instagram, Mail, MapPin, Menu, Sprout, X, Youtube } from "lucide-react"
 import { gemRing } from '@lucide/lab';
 
-import { lora } from "./fonts";
+import { playfair } from "./fonts";
 
 
 interface NavItem {
@@ -137,6 +137,11 @@ interface Calendar {
 const calendar: Calendar[] = [
   {
     date: "Em breve",
+    title: "Famílias Para a Glória de Deus",
+    description: "",
+  },
+  {
+    date: "Em breve",
     title: "Na Ponta da Língua",
     description: "",
   },
@@ -158,7 +163,7 @@ export default function Home() {
               <a
                 key={index}
                 href={item.href}
-                className="text-sm font-medium text-ink/70 transition-colors hover:text-primary"
+                className="text-sm font-medium text-ink/70 transition-colors hover:text-neutral-700"
               >
                 {item.name}
               </a>
@@ -168,7 +173,7 @@ export default function Home() {
           <div className="hidden lg:block">
             <a
               href="#celulas"
-              className="border border-ink px-6 py-2.5 text-sm font-medium text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
+              className="border border-ink px-6 py-2.5 text-sm font-medium text-ink transition-colors hover:border-neutral-700 hover:bg-neutral-700 hover:text-white"
             >
               Fazer Parte
             </a>
@@ -194,13 +199,13 @@ export default function Home() {
             <X size={26} />
           </button>
         </div>
-        <nav className={`flex flex-col gap-2 px-4 py-8 sm:px-6 sm:py-10 ${lora.className}`}>
+        <nav className={`flex flex-col gap-2 px-4 py-8 sm:px-6 sm:py-10 ${playfair.className}`}>
           {navItems.map((item, index) => (
             <a
               key={index}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="border-b border-ink/10 py-4 text-xl text-ink transition-colors hover:text-primary sm:text-2xl"
+              className="border-b border-ink/10 py-4 text-xl text-ink transition-colors hover:text-neutral-700 sm:text-2xl"
             >
               {item.name}
             </a>
@@ -225,8 +230,8 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-ink/35" />
 
-              <div className={`relative z-10 max-w-3xl space-y-5 p-6 text-center text-white sm:space-y-6 sm:p-10 lg:p-14 ${lora.className}`}>
-                <h1 className="text-3xl font-medium italic leading-[1.15] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+              <div className={`relative z-10 max-w-3xl space-y-5 p-6 text-center text-white sm:space-y-6 sm:p-10 lg:p-14`}>
+                <h1 className={`text-3xl font-medium italic leading-[1.15] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl ${playfair.className}`}>
                   Amar a Deus, crescer com os irmãos e servir a todos.
                 </h1>
                 <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 pt-2 font-sans sm:gap-x-8 sm:pt-4">
@@ -253,22 +258,22 @@ export default function Home() {
             <div className="grid gap-12 sm:gap-14 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-5 space-y-8 sm:space-y-10">
                 <div className="space-y-4">
-                  <p className="text-xs font-semibold text-primary">Nos Encontre</p>
-                  <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+                  <p className="text-xs font-semibold italic text-primary">Participe conosco</p>
+                  <h2 className={`text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl ${playfair.className}`}>
                     Programação
                   </h2>
-                  <p className="text-lg leading-relaxed text-ink/70">
+                  <p className="leading-relaxed text-ink/70">
                     Nossa agenda é pensada para que você possa se conectar com Deus e com a comunidade em diferentes momentos da semana.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-6 border-t border-ink/20 pt-8 sm:gap-8">
                   <div>
-                    <div className={`text-2xl font-medium text-primary sm:text-3xl ${lora.className}`}>18h30</div>
+                    <div className={`text-2xl font-medium text-primary sm:text-3xl ${playfair.className}`}>18h30</div>
                     <div className="mt-1 text-sm text-ink/60">Culto Dominical</div>
                   </div>
                   <div>
-                    <div className={`text-2xl font-medium text-primary sm:text-3xl ${lora.className}`}>09h00</div>
+                    <div className={`text-2xl font-medium text-primary sm:text-3xl ${playfair.className}`}>09h00</div>
                     <div className="mt-1 text-sm text-ink/60">Escola Bíblica</div>
                   </div>
                 </div>
@@ -276,7 +281,7 @@ export default function Home() {
                 <a
                   href="https://maps.app.goo.gl/pUpm9FvVLxwH652s8"
                   target="_blank"
-                  className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                  className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-neutral-700 hover:bg-neutral-700 hover:text-white"
                 >
                   <MapPin size={16} />
                   Como chegar
@@ -333,11 +338,11 @@ export default function Home() {
         <section id="celulas" className="bg-paper py-16 sm:py-20 md:py-24 lg:py-28">
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <p className="text-xs font-semibold text-primary">Comunhão nas Casas</p>
-              <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+              <p className="text-xs font-semibold italic text-primary">Comunhão nas Casas</p>
+              <h2 className={`text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl ${playfair.className}`}>
                 Células
               </h2>
-              <p className="text-lg leading-relaxed text-ink/70">
+              <p className="leading-relaxed text-ink/70">
                 Nossas células são encontros semanais que acontecem nas casas, proporcionando um ambiente acolhedor para comunhão, discipulado e aprofundamento nas Escrituras.
               </p>
             </div>
@@ -361,9 +366,9 @@ export default function Home() {
                     ) : (
                       <celula.icon size={18} className="text-primary" />
                     )}
-                    <h3 className={`text-lg font-medium italic ${lora.className}`}>{celula.title}</h3>
+                    <h3 className="text-lg font-medium">{celula.title}</h3>
                   </div>
-                  <p className={`mt-2 flex items-start gap-1.5 text-xs italic text-ink/50 ${lora.className}`}>
+                  <p className="mt-2 flex items-start gap-1.5 text-xs text-ink/50">
                     <MapPin size={13} className="mt-0.5 shrink-0" />
                     Próxima {celula.location}
                   </p>
@@ -379,25 +384,33 @@ export default function Home() {
         <section id="simple-church" className="border-y border-ink/10 bg-paper-muted py-16 sm:py-20 md:py-24 lg:py-28">
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <p className="text-xs font-semibold text-primary">Nossa Forma de Ser Igreja</p>
-              <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+              <p className="text-xs font-semibold italic text-primary">Nossa Forma de Ser Igreja</p>
+              <h2 className={`text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl ${playfair.className}`}>
                 Somos uma igreja simples
               </h2>
             </div>
 
-            <div className="mt-10 grid gap-10 sm:mt-12 sm:gap-12 md:grid-cols-2">
+            <div className="mt-10 grid gap-10 sm:mt-12 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
               <div className="border-t border-ink/20 pt-8">
-                <h3 className={`text-2xl font-medium ${lora.className}`}>Relacionamentos</h3>
+                <h3 className={`text-2xl font-medium italic ${playfair.className}`}>Relacionamentos</h3>
                 <p className="mt-4 leading-relaxed text-ink/70">
-                  Valorizamos uma caminhada cristã simples, centrada em relacionamentos verdadeiros.
+                  Valorizamos uma caminhada cristã simples, centrada em relacionamentos verdadeiros, onde cada
+                  pessoa é conhecida, acompanhada e cuidada de perto pela igreja e por seus irmãos.
                 </p>
               </div>
 
               <div className="border-t border-ink/20 pt-8">
-                <h3 className={`text-2xl font-medium ${lora.className}`}>Intencionalidade</h3>
+                <h3 className={`text-2xl font-medium italic ${playfair.className}`}>Intencionalidade</h3>
                 <p className="mt-4 leading-relaxed text-ink/70">
                   Nossas programações são intencionais e objetivas, com cultos de liturgia simples e profunda.
-                  Acreditamos que cada membro é parte ativa da missão.
+                  Acreditamos que cada membro é parte ativa da missão, servindo com seus dons e talentos.
+                </p>
+              </div>
+
+              <div className="border-t border-ink/20 pt-8">
+                <h3 className={`text-2xl font-medium italic ${playfair.className}`}>Pregação Expositiva</h3>
+                <p className="mt-4 leading-relaxed text-ink/70">
+                  Essa é a forma de pregação adotada pela nossa igreja: cremos que a Palavra de Deus, exposta em seu contexto e integralidade, é suficiente para transformar vidas, não servindo apenas como ponto de partida para tratar de outros temas.
                 </p>
               </div>
             </div>
@@ -409,13 +422,13 @@ export default function Home() {
             <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-24">
               <div className="space-y-8">
                 <div className="space-y-3">
-                  <p className="text-xs font-semibold text-primary">Nossa Identidade</p>
-                  <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+                  <p className="text-xs font-semibold text-primary italic">Nossa História</p>
+                  <h2 className={`text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl ${playfair.className}`}>
                     Quem Somos
                   </h2>
                 </div>
 
-                <div className="space-y-6 text-lg leading-relaxed text-ink/70">
+                <div className="space-y-6 leading-relaxed text-ink/70">
                   <p>
                     Fundada em 2008, nossa igreja nasceu com o propósito de viver o
                     evangelho de forma relacional e bíblica.
@@ -425,8 +438,8 @@ export default function Home() {
                     Cristo, na Bíblia Sagrada como única regra de fé e prática, no discipulado contínuo e em louvores que
                     exaltem a trindade e Sua obra.
                   </p>
-                  <blockquote className={`border-l-2 border-primary pl-6 text-xl text-ink ${lora.className}`}>
-                    "Amar a Deus, crescer com os irmãos e servir a todos!"
+                  <blockquote className={`border-l-2 border-ink/50 pl-6 italic text-xl text-ink/70 ${playfair.className}`}>
+                    Amar a Deus, crescer com os irmãos e servir a todos!
                   </blockquote>
                 </div>
               </div>
@@ -446,11 +459,11 @@ export default function Home() {
         <section id="pregacoes" className="border-t border-ink/10 bg-paper py-16 sm:py-20 md:py-24 lg:py-28">
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl space-y-4">
-              <p className="text-xs font-semibold text-primary">Palavra de Deus</p>
-              <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+              <p className="text-xs font-semibold italic text-primary">Palavra de Deus</p>
+              <h2 className={`text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl ${playfair.className}`}>
                 Séries de Pregações
               </h2>
-              <p className="text-lg leading-relaxed text-ink/70">
+              <p className="leading-relaxed text-ink/70">
                 Acompanhe nossas séries de mensagens e mergulhe no conhecimento das Escrituras.
               </p>
             </div>
@@ -492,7 +505,7 @@ export default function Home() {
               <a
                 href="https://www.youtube.com/@ibgramore/playlists"
                 target="_blank"
-                className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-xs font-semibold text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white sm:px-7"
+                className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-xs font-semibold text-ink transition-colors hover:border-neutral-700 hover:bg-neutral-700 hover:text-white sm:px-7"
               >
                 Ver todas no YouTube <ExternalLink size={16} />
               </a>
@@ -506,11 +519,11 @@ export default function Home() {
           <div className="grid gap-10 sm:gap-12 lg:grid-cols-2 lg:items-center lg:gap-24">
             <div className="space-y-6">
               <div className="space-y-3">
-                <p className="text-xs font-semibold text-primary">Comunidade Online</p>
-                <h2 className={`text-3xl font-medium italic tracking-tight sm:text-4xl md:text-5xl ${lora.className}`}>
+                <p className="text-xs font-semibold italic text-primary">Comunidade Online</p>
+                <h2 className={`text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl ${playfair.className}`}>
                   Acompanhe nas redes sociais
                 </h2>
-                <p className="text-lg leading-relaxed text-ink/70">
+                <p className="leading-relaxed text-ink/70">
                   Nossa rede social mais ativa é o Instagram, onde compartilhamos stories durante os cultos,
                   comunicados e novidades sobre os eventos. No YouTube, fazemos as transmissões das celebrações
                   de domingo e da Escola Bíblica Teológica.
@@ -520,7 +533,7 @@ export default function Home() {
                 <a
                   href="https://www.instagram.com/ibgramore"
                   target="_blank"
-                  className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                  className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-neutral-700 hover:bg-neutral-700 hover:text-white"
                 >
                   <Instagram size={18} />
                   Instagram
@@ -528,7 +541,7 @@ export default function Home() {
                 <a
                   href="https://www.youtube.com/@ibgramore"
                   target="_blank"
-                  className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                  className="inline-flex items-center gap-2 border border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-neutral-700 hover:bg-neutral-700 hover:text-white"
                 >
                   <Youtube size={18} />
                   YouTube

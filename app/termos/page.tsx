@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 import logoIbg from "../../public/logo-h.svg";
-import { lora } from "../fonts";
+import { playfair } from "../fonts";
 
 export const metadata: Metadata = {
   title: "Termos de Uso",
@@ -26,8 +26,8 @@ export default function Termos() {
       <main className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-3xl space-y-10">
           <div className="space-y-3">
-            <p className="text-xs font-semibold text-primary">Informações Legais</p>
-            <h1 className={`text-3xl font-medium italic tracking-tight sm:text-4xl ${lora.className}`}>
+            <p className="text-xs font-semibold italic text-primary">Informações Legais</p>
+            <h1 className={`text-3xl font-medium tracking-tight sm:text-4xl ${playfair.className}`}>
               Termos de Uso
             </h1>
             <p className="text-sm text-ink/50">Última atualização: julho de 2026</p>
@@ -46,8 +46,8 @@ export default function Termos() {
             <section className="space-y-2">
               <h2 className="text-lg font-semibold text-ink">2. Uso do Conteúdo</h2>
               <p>
-                Todo o conteúdo publicado neste site — textos, imagens, vídeos e materiais relacionados —
-                é disponibilizado para fins informativos e devocionais. É permitida a reprodução para uso
+                Todo o conteúdo publicado neste site (textos, imagens, vídeos e materiais relacionados) é
+                disponibilizado para fins informativos e devocionais. É permitida a reprodução para uso
                 pessoal e não comercial, desde que citada a fonte.
               </p>
             </section>
