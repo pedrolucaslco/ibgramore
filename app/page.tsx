@@ -138,12 +138,12 @@ const calendar: Calendar[] = [
   {
     date: "Em breve",
     title: "Famílias Para a Glória de Deus",
-    description: "",
+    description: "Um evento que fala sobre a família à luz da Palavra: o papel do marido, da esposa e dos filhos, e como cuidar e se relacionar dentro do núcleo familiar.",
   },
   {
-    date: "Em breve",
+    date: "Em Agosto 2026",
     title: "Na Ponta da Língua",
-    description: "",
+    description: "Um evento que aborda temas culturais à luz da Palavra, relacionando teologia com cultura, música e os assuntos mais recentes e polêmicos da atualidade.",
   },
 ];
 
