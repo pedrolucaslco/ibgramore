@@ -12,7 +12,7 @@ import imgTulipa from "../public/tulipa.jpg";
 import imgPacifique from "../public/pacifique.jpg";
 import imgAlianca from "../public/alianca.jpg";
 
-import { Anchor, Bird, ExternalLink, Flower2, Footprints, Icon, Instagram, Mail, MapPin, Menu, Sprout, X, Youtube } from "lucide-react"
+import { Anchor, Bird, Calendar as CalendarIcon, ExternalLink, Flower2, Footprints, Icon, Instagram, Mail, MapPin, Menu, Sprout, X, Youtube } from "lucide-react"
 import { gemRing } from '@lucide/lab';
 
 import { playfair } from "./fonts";
@@ -136,12 +136,12 @@ interface Calendar {
 
 const calendar: Calendar[] = [
   {
-    date: "Em breve",
+    date: "Agosto/2026",
     title: "Famílias Para a Glória de Deus",
     description: "Um evento que fala sobre a família à luz da Palavra: o papel do marido, da esposa e dos filhos, e como cuidar e se relacionar dentro do núcleo familiar.",
   },
   {
-    date: "Em Agosto 2026",
+    date: "Agosto/2026",
     title: "Na Ponta da Língua",
     description: "Um evento que aborda temas culturais à luz da Palavra, relacionando teologia com cultura, música e os assuntos mais recentes e polêmicos da atualidade.",
   },
@@ -267,17 +267,6 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-6 border-t border-ink/20 pt-8 sm:gap-8">
-                  <div>
-                    <div className={`text-2xl font-medium text-primary sm:text-3xl ${playfair.className}`}>18h30</div>
-                    <div className="mt-1 text-sm text-ink/60">Culto Dominical</div>
-                  </div>
-                  <div>
-                    <div className={`text-2xl font-medium text-primary sm:text-3xl ${playfair.className}`}>09h00</div>
-                    <div className="mt-1 text-sm text-ink/60">Escola Bíblica</div>
-                  </div>
-                </div>
-
                 <a
                   href="https://maps.app.goo.gl/pUpm9FvVLxwH652s8"
                   target="_blank"
@@ -288,44 +277,51 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="lg:col-span-7 space-y-10 sm:space-y-14">
-                <div>
-                  <h3 className="text-xs font-semibold text-ink/50">Agenda Regular</h3>
-                  <div className="mt-6 divide-y divide-ink/10">
-                    <div className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                      <span className="font-medium text-ink">Cultos de Celebração</span>
-                      <span className="text-sm text-ink/60 sm:text-base">Domingo às 18h30</span>
-                    </div>
-                    <div className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                      <span className="font-medium text-ink">Escola Bíblica Teológica</span>
-                      <span className="text-sm text-ink/60 sm:text-base">Domingo às 9h</span>
-                    </div>
-                    <div className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-                      <span className="font-medium text-ink">Células</span>
-                      <span className="text-sm text-ink/60 sm:text-base">Durante a semana (Noite)</span>
-                    </div>
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-2.5">
+                  <CalendarIcon size={22} className="text-primary" />
+                  <h3 className={`text-xl font-medium tracking-tight sm:text-2xl ${playfair.className}`}>
+                    Calendário
+                  </h3>
+                </div>
+
+                <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                  <div className="border border-ink/10 p-5 text-center">
+                    <div className={`text-2xl font-medium text-primary ${playfair.className}`}>18h30</div>
+                    <div className="mt-2 text-sm font-medium text-ink/80">Celebração Dominical</div>
+                    <div className="text-xs text-ink/50">Domingo</div>
+                  </div>
+                  <div className="border border-ink/10 p-5 text-center">
+                    <div className={`text-2xl font-medium text-primary ${playfair.className}`}>09h00</div>
+                    <div className="mt-2 text-sm font-medium text-ink/80">Escola Bíblica Teológica</div>
+                    <div className="text-xs text-ink/50">Domingo</div>
+                  </div>
+                  <div className="border border-ink/10 p-5 text-center">
+                    <div className={`text-2xl font-medium text-primary ${playfair.className}`}>Noite</div>
+                    <div className="mt-2 text-sm font-medium text-ink/80">Células</div>
+                    <div className="text-xs text-ink/50">Durante a semana</div>
                   </div>
                 </div>
 
-                <div>
-                  <h3 className="text-xs font-semibold text-ink/50">Eventos Especiais</h3>
+                <div className="mt-10 border border-ink/10 divide-y divide-ink/10">
+                  <h3 className="p-4 text-xs font-semibold text-ink/50">Eventos Especiais</h3>
                   {calendar.length > 0 ? (
-                    <div className="mt-6 divide-y divide-ink/10">
-                      {calendar.map((event, index) => (
-                        <div key={index} className="flex flex-col gap-1 py-5 sm:flex-row sm:gap-6">
-                          <div className="shrink-0 sm:w-28">
-                            <div className="text-sm font-semibold text-ink">{event.date.split(' - ')[0]}</div>
-                            <div className="text-xs text-ink/50">{event.date.split(' - ')[1]}</div>
-                          </div>
+                    calendar.map((event, index) => (
+                      <div key={index} className="flex">
+                        <div className="flex w-24 shrink-0 flex-col items-center justify-center border-r border-ink/10 p-4 text-center sm:w-28">
+                          <div className="text-sm font-semibold text-ink/60">{event.date.split(' - ')[0]}</div>
+                          <div className="text-xs text-ink/50">{event.date.split(' - ')[1]}</div>
+                        </div>
+                        <div className="flex flex-1 items-center p-4 text-left">
                           <div>
-                            <div className="font-medium text-ink">{event.title}</div>
+                            <div className="font-medium text-ink/80">{event.title}</div>
                             <div className="mt-1 text-sm leading-relaxed text-ink/60">{event.description}</div>
                           </div>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ))
                   ) : (
-                    <p className="mt-6 text-sm text-ink/50">
+                    <p className="p-4 text-sm text-ink/50">
                       Nenhum evento programado no momento.
                     </p>
                   )}
